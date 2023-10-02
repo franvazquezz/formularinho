@@ -4,7 +4,7 @@
   "private": true,
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon -L ",
+    "start": "nodemon -L src/index.js",
     "test": "mocha -w ./tests/**/*.spec.js"
   },
   "engines": {
