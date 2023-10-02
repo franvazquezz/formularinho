@@ -2,8 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Modal } from '@mui/material';
 
 const AllForms = () => {
+  const [toggleClose, setToggleClose] = useState(false);
   const [formsData, setFormsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -31,6 +33,9 @@ const AllForms = () => {
       fechas.push(date)
     }
   }
+  const handleToggle = () => {
+    setToggleClose(!toggleClose)
+  }
   return (
     <div className='p-8'>
       <h1 className='text-center p-4'>Respuestas</h1>
@@ -39,7 +44,7 @@ const AllForms = () => {
       {formsData.length > 0 ? (
         <ul className='grid lg:grid-cols-3 md:grid-cols-2 gap-5'>
           {formsData.map((form, index) => (
-            <li key={index} className='color-change-5x grid grid-cols-2 gap-x-2 min-w-screen md:min-w-1/3 border rounded-md shadow-md bg-teal-300 bg-opacity-25 p-4 px-6 gap-2 hover:scale-105 hover:shadow-teal-500'>
+            <li key={index} className='color-change-5x grid grid-cols-2 gap-x-2 min-w-screen md:min-w-1/3 border rounded-md shadow-md bg-teal-300 bg-opacity-25 p-4 px-6 gap-2 hover:scale-105 hover:shadow-teal-500 focus:scale-105 focus:shadow-teal-500'>
               <p className='font-semibold text-sm'>Nombre</p>
               <p className='font-light text-sm'>{form.full_name}</p>
               <p className='font-semibold text-sm'>Teléfono</p>
@@ -56,6 +61,7 @@ const AllForms = () => {
               <p className='font-light text-sm'>{`${form.createdAt.slice(8, 10)}/${form.createdAt.slice(5, 7)}/${form.createdAt.slice(0, 4)}`}</p>
               <p className='font-semibold text-sm'>Hora</p>
               <p className='font-light text-sm'>{form.createdAt.slice(11, 16)}</p>
+              <a key={index} href={`/forms/${form.id}`} className='rounded-lg shadow-lg text-center focus:scale-105 hover:scale-105'>Editar</a>
             </li>
           ))}
         </ul>
