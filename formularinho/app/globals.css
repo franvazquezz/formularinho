@@ -1,0 +1,93 @@
+@import 'animate.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+.slide-top {
+	-webkit-animation: slide-top 1s cubic-bezier(0.600, 0.040, 0.980, 0.335) 2s both;
+	        animation: slide-top 1s cubic-bezier(0.600, 0.040, 0.980, 0.335) 2s both;
+}
+/**
+ * ----------------------------------------
+ * animation slide-top
+ * ----------------------------------------
+ */
+ @-webkit-keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+  }
+}
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+  }
+}
+
+.color-change-5x {
+	-webkit-animation: color-change-5x 40s linear infinite alternate both;
+	        animation: color-change-5x 40s linear infinite alternate both;
+}
+/**
+ * ----------------------------------------
+ * animation color-change-5x
+ * ----------------------------------------
+ */
+ @-webkit-keyframes color-change-5x {
+  0% {
+    background: #6dccd3;
+  }
+  25% {
+    background: #d18ef8;
+  }
+  50% {
+    background: #f79191;
+  }
+  75% {
+    background: #f3d983;
+  }
+  100% {
+    background: #a5f08f;
+  }
+}
+@keyframes color-change-5x {
+  0% {
+    background: #91f1f8;
+  }
+  25% {
+    background: #ca89f0;
+  }
+  50% {
+    background: #eb8b8b;
+  }
+  75% {
+    background: #f1de9c;
+  }
+  100% {
+    background: #abee97;
+  }
+}
