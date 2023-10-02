@@ -12,7 +12,7 @@ const AllForms = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/forms');
+        const response = await axios.get('https://backendform-vthb.onrender.com/forms');
         setFormsData(response.data);
         convertDate()
         setLoading(false);
